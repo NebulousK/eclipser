@@ -31,6 +31,7 @@ public class ResultUI extends JFrame {
 		String as = null;
 		for(handphone handphone:datas){
 			as = handphone.getName();
+			System.out.println(as);
 			}
 
 		contentPane = new JPanel();

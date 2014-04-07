@@ -49,7 +49,7 @@ public class TeamProjectSelUI extends JFrame implements ActionListener{
 		ImageIcon sk, kt, lg;
 		sk = new ImageIcon(getClass().getResource("/Teamimg/skt.png"));
 		btnsk.setIcon(sk);
-		btnsk.setText("sk");
+		btnsk.setText("skt");
 		btnsk.setBounds(12, 10, 140, 280);
 		contentPane.add(btnsk);
 		
