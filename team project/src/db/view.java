@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class view {
-	public ArrayList view(String tel, String os, String broad, String color, String dis, double mem, double cpu, int camera, int bettery){
+	public ArrayList<handphone> view(String tel, String os, String broad, String color, String dis, double mem, double cpu, int camera, int bettery){
 		ArrayList<handphone> datas = new ArrayList<handphone>();
 		String sql = "select * from handphone where (telecom = ? OR telecom1 = ? OR telecom2 = ?) and os=? and broad=? and (color=? or color2=? or color3=? or color4=?) and dis=? and mem>=? and cpu>=? and camera>=? and bettery>=?";
 	try {
@@ -29,7 +29,7 @@ public class view {
 		stmt.setDouble(12, cpu);
 		stmt.setInt(13, camera);
 		stmt.setInt(14, bettery);
-		System.out.println(stmt); //확인용
+		System.out.println(stmt);
 		ResultSet rs = stmt.executeQuery();
 		while(rs.next()){
 			handphone a = new handphone();
@@ -55,7 +55,6 @@ public class view {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
 	return datas;
 	}
 }
