@@ -16,7 +16,7 @@ public class LoadingUI extends JFrame {
 	
 	public void WifiUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 450);
+		setBounds(400, 100, 650, 600);
 		setVisible(true);
 		
 		contentPane = new JPanel();
@@ -27,7 +27,7 @@ public class LoadingUI extends JFrame {
 		JLabel wifi = new JLabel("");
 		wifi.setHorizontalAlignment(SwingConstants.CENTER);
 		wifi.setIcon(new ImageIcon(getClass().getResource("/Teamimg/wifi.gif"))); //
-		wifi.setBounds(12, 10, 460, 392);
+		wifi.setBounds(12, 10, 620, 570);
 		contentPane.add(wifi);
 		
 	}		

@@ -1,12 +1,13 @@
 package Flame;
-import java.awt.EventQueue;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-import javax.swing.AbstractButton;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,14 +15,14 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 
-public class TeamProjectSelUI extends JFrame implements ActionListener{
+public class TeamProjectSelUI extends JFrame implements ActionListener, MouseListener{
 
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -32,54 +33,103 @@ public class TeamProjectSelUI extends JFrame implements ActionListener{
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public TeamProjectSelUI() {
+	public void TeamProjectSelUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 450);
+		setBounds(400, 100, 650, 600);
+		setVisible(true);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnsk = new JButton("skt");
+		JLabel lbsk = new JLabel();
 		ImageIcon sk, kt, lg;
 		sk = new ImageIcon(getClass().getResource("/Teamimg/skt.png"));
-		btnsk.setIcon(sk);
-		btnsk.setText("skt");
-		btnsk.setBounds(12, 10, 140, 280);
-		contentPane.add(btnsk);
+		lbsk.setHorizontalAlignment(SwingConstants.CENTER);
+		lbsk.setIcon(sk);
+		lbsk.setBounds(12, 20, 190, 400);
+		lbsk.setName("skt");
+		lbsk.setBorder(BorderFactory.createLineBorder(Color.black));
+		contentPane.add(lbsk);
 		
-		JButton btnkt = new JButton("kt");
+		JLabel lbkt = new JLabel();
 		kt = new ImageIcon(getClass().getResource("/Teamimg/olleg KT.png"));
-		btnkt.setIcon(kt);
-		btnkt.setBounds(172, 10, 140, 280);
-		contentPane.add(btnkt);
+		lbkt.setHorizontalAlignment(SwingConstants.CENTER);
+		lbkt.setIcon(kt);
+		lbkt.setBounds(222, 20, 190, 400);
+		lbkt.setName("kt");
+		lbkt.setBorder(BorderFactory.createLineBorder(Color.black));
+		contentPane.add(lbkt);
 		
-		JButton btnlg = new JButton("lg");
+		JLabel lblg = new JLabel();
 		lg = new ImageIcon(getClass().getResource("/Teamimg/lg u+.png"));
-		btnlg.setIcon(lg);
-		btnlg.setBounds(329, 10, 140, 280);
-		contentPane.add(btnlg);
+		lblg.setHorizontalAlignment(SwingConstants.CENTER);
+		lblg.setIcon(lg);
+		lblg.setBounds(432, 20, 190, 400);
+		lblg.setName("lgt");
+		lblg.setBorder(BorderFactory.createLineBorder(Color.black));
+		contentPane.add(lblg);
 		
 		JLabel teltitle = new JLabel("통신사를 선택하세요");
 		teltitle.setFont(new Font("굴림", Font.BOLD, 30));
 		teltitle.setHorizontalAlignment(SwingConstants.CENTER);
-		teltitle.setBounds(12, 312, 460, 90);
+		teltitle.setBorder(BorderFactory.createLineBorder(Color.black));
+		teltitle.setBounds(12, 452, 610, 90);
 		contentPane.add(teltitle);
 		
-		btnsk.addActionListener(this);
-		btnkt.addActionListener(this);
-		btnlg.addActionListener(this);
+		lbsk.addMouseListener(this);
+		lbkt.addMouseListener(this);
+		lblg.addMouseListener(this);
+		
+	}
+
+	/*@Override
+	public void actionPerformed(ActionEvent e) {
+		TeamProjectSelUI1 ui1 = new TeamProjectSelUI1();
+		ui1.SelUI1(e.getActionCommand());
+		dispose();
+	}*/
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		TeamProjectSelUI1 ui1 = new TeamProjectSelUI1();
+		JLabel l = (JLabel) e.getSource();
+		
+		if(l.getName().equals("skt")){
+			ui1.SelUI1(l.getName());
+			dispose();
+		}
+		else if(l.getName().equals("kt")){
+			ui1.SelUI1(l.getName());
+			dispose();
+		}
+		else if(l.getName().equals("lgt")){
+			ui1.SelUI1(l.getName());
+			dispose();
+		}
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-			TeamProjectSelUI1 UI1 = new TeamProjectSelUI1();
-			UI1.SelUI1(e.getActionCommand());
-			dispose();
+	public void mouseEntered(MouseEvent arg0){}
+	@Override
+	public void mouseExited(MouseEvent arg0){}
+	@Override
+	public void mousePressed(MouseEvent e){
+		
+		
+	}
+	@Override
+	public void mouseReleased(MouseEvent arg0){}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

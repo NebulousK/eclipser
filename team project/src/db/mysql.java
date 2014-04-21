@@ -7,16 +7,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class mysql {
-	    Connection connect() {
+	    static Connection connect() {
 		Connection con = null;
 		Statement stmt;
 		ResultSet rs = null;
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://192.168.10.51:3306/scott";
+			String url = "jdbc:mysql://192.168.10.112:3306/scott?dbname?useUnicode=true&characterEncoding=utf8&autoReconnect=true";
 			//String url = "jdbc:mysql://127.0.0.1:3306/scott";
 			con = DriverManager.getConnection(url, "scott", "tiger");
-			System.out.println("얄루.");
+			//System.out.println("얄루.");
 		}
 		catch(SQLException e){
 			System.out.println(e);
@@ -28,4 +28,7 @@ public class mysql {
 		}
 		return con;
 	}
+	    public static void main(String[] args) {
+			connect();
+		}
 }
